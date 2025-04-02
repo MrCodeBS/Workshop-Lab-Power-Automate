@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Hands-On Workshop | GitHub/GitLab Automation with Power Automate & Renovate"
+    />
+    <meta
+      name="keywords"
+      content="Power Automate, Workshop, GitHub, GitLab, Renovate, Automation"
+    />
+    <meta name="author" content="MrCode" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>Workshop Lab Power Automate</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="welcome.html" class="nav-item active"
+        >Workshop Lab Power Automate</a
+      >
+      <a href="task1.html" class="nav-item">Task 1</a>
+      <a href="task2.html" class="nav-item">Task 2</a>
+      <a href="task3.html" class="nav-item">Task 3</a>
+      <a href="task4.html" class="nav-item">Task 4</a>
+      <a href="task5.html" class="nav-item">Task 5</a>
+      <a href="task6.html" class="nav-item">Task 6</a>
+    </nav>
+
+    <div class="container">
+      <h1>
+        Hands-On Workshop | GitHub/GitLab Automation with Power Automate &
+        Renovate
+      </h1>
+      <p>
+        Welcome to this hands-on workshop where you'll learn how to automate
+        your GitHub and GitLab workflows using Power Automate and Renovate.
+        Throughout this workshop, you'll gain practical skills that will help
+        you streamline your development processes and maintain your repositories
+        efficiently.
+      </p>
+      <hr />
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2><span class="step-number">📋</span> Workshop Overview</h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p>
+            This workshop consists of 6 hands-on tasks that will guide you
+            through automating various aspects of GitHub/GitLab workflows.
+          </p>
+          <ul>
+            <li>
+              <strong>Task 1:</strong> Adding Renovate Bot to GitHub
+              repositories
+            </li>
+            <li>
+              <strong>Task 2:</strong> Configuring Renovate for dependency
+              management
+            </li>
+            <li>
+              <strong>Task 3:</strong> Creating Power Automate flows for GitHub
+            </li>
+            <li><strong>Task 4:</strong> Automating GitLab workflows</li>
+            <li><strong>Task 5:</strong> Advanced Renovate configurations</li>
+            <li>
+              <strong>Task 6:</strong> Integration and putting it all together
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2><span class="step-number">🎯</span> Learning Objectives</h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p>By the end of this workshop, you will be able to:</p>
+          <ul>
+            <li>
+              Set up and configure Renovate bot for automated dependency updates
+            </li>
+            <li>Create custom Power Automate flows for GitHub and GitLab</li>
+            <li>Automate code reviews and approval processes</li>
+            <li>Configure advanced dependency management strategies</li>
+            <li>
+              Integrate automation tools into your daily development workflow
+            </li>
+            <li>Improve team productivity through strategic automation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2><span class="step-number">🛠️</span> Prerequisites</h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p>
+            To get the most out of this workshop, please make sure you have:
+          </p>
+          <ul>
+            <li>A GitHub account with repository creation permissions</li>
+            <li>Access to Microsoft Power Automate</li>
+            <li>Basic understanding of Git operations</li>
+            <li>Familiarity with package managers (npm, pip, etc.)</li>
+          </ul>
+          <p>
+            If you're missing any of these, please speak with the workshop
+            instructor for assistance.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2><span class="step-number">🚀</span> Getting Started</h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p>To begin this workshop:</p>
+          <ol>
+            <li>Ensure you've met all prerequisites listed above</li>
+            <li>Start with Task 1 and follow each task in sequence</li>
+            <li>Complete the exercises at the end of each section</li>
+            <li>Ask questions if you encounter any difficulties</li>
+          </ol>
+          <div style="display: flex; gap: 1rem; margin-top: 1rem">
+            <a href="task1.html" class="button">Begin with Task 1</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2><span class="step-number">📚</span> Resources</h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p>Here are some helpful resources for this workshop:</p>
+          <ul>
+            <li>
+              <a href="https://docs.renovatebot.com/" target="_blank"
+                >Renovate Documentation</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.microsoft.com/en-us/power-automate/"
+                target="_blank"
+                >Power Automate Documentation</a
+              >
+            </li>
+            <li>
+              <a href="https://docs.github.com/en/rest" target="_blank"
+                >GitHub API Documentation</a
+              >
+            </li>
+            <li>
+              <a href="https://docs.gitlab.com/ee/api/" target="_blank"
+                >GitLab API Documentation</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
