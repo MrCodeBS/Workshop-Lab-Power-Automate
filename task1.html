@@ -59,15 +59,15 @@
         
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">3</span> Zähler erhöhen</h2>
+                <h2><span class="step-number">3</span> Review the "Configure Renovate" Pull Request</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>In diesem Schritt erhöhen Sie den Zähler, um Daten zu generieren.</p>
+                <p>Once you have enabled Renovate on a repository, you will get a "Configure Renovate" PR (Pull Request) that looks something like this:</p>
+                <img src="media/img/config-pr.png" alt="Config-PR" style="width: 60%; max-width: 400px; margin: 1rem 0; border-radius: 10px;">
                 <ol>
-                    <li>Klicken Sie auf den "Erhöhen" Button</li>
-                    <li>Beobachten Sie, wie sich der Wert ändert</li>
-                    <li>Wiederholen Sie den Vorgang mehrmals, um einen Trend zu erzeugen</li>
+                    <li>You can edit your Renovate configuration within the renovate/configure branch and Renovate will keep updating the description in the PR to match, so you can work on the config until you're satisfied with the results.</li>
+                    <li>Once you're happy with the config, you can merge the PR and Renovate will start running on your repository.</li>
                 </ol>
             </div>
         </div>
