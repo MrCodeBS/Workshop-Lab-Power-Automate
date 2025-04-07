@@ -33,7 +33,7 @@
             </div>
             <div class="card-body">
                 <p>The first step is to visit <a href="https://github.com/apps/renovate"> the Renovate app page</a> and select the Install button:</p>
-                <img src="media/img/renovate-app-page.png" alt="renovate-app-pagey" style="width: 100%; max-width: 600px; margin: 1rem 0;">
+                <img src="media/img/renovate-app-page.png" alt="renovate-app-pagey" style="width: 100%; max-width: 600px; margin: 1rem 0; border-radius: 10px;">
                 <p>Click on the "Install" button to proceed with the installation.</p>
                 <div style="display: flex; gap: 1rem;">
                     <a href="https://github.com/apps/renovate"><button class="button">To the Renovate App</button></a>
@@ -43,16 +43,17 @@
         
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">2</span>Hosted GitHub.com App</h2>
+                <h2><span class="step-number">2</span>Select Repositories for Mend Renovate</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>Hier können Sie einen Namen für Ihren Zähler definieren.</p>
+                <p>On the repository selection screen, you'll decide which repositories to enable Renovate for. Renovate automatically ignores:</p>
                 <ul>
-                    <li>Wählen Sie einen eindeutigen Namen für Ihren Counter</li>
-                    <li>Vermeiden Sie Sonderzeichen und Leerzeichen</li>
-                    <li>Benutzen Sie Unterstriche als Trennzeichen (z.B. mein_zaehler)</li>
+                    <li>Repositories without known package files</li>
+                    <li>Forked repositories (by default) if you choose "All repositories"</li>
                 </ul>
+                <p>This means you can safely enable Renovate for all repositories without worrying about unnecessary scans. However, most users prefer to run Renovate on selected repositories.</p>
+                <img src="media/img/repo-access.png" alt="repo-access" style="width: 100%; max-width: 600px; margin: 1rem 0; border-radius: 10px;">
             </div>
         </div>
         
