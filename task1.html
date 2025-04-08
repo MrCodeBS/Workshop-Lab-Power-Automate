@@ -28,7 +28,20 @@
         
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">1</span>Install GitHub Hosted Renovate App</h2>
+                <h2><span class="step-number">1</span> GitHub-Repository aufrufen</h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p>Go to the <a href="https://github.com/MrCode-Academy/enigma-machine-workshop-sample">GitHub-Repository and fork it</a>, to start the practical part.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="https://github.com/MrCode-Academy/enigma-machine-workshop-sample"><button class="button">To GitHub-Repository</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">2</span>Install GitHub Hosted Renovate App</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
@@ -43,7 +56,7 @@
         
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">2</span>Select Repositories for Mend Renovate</h2>
+                <h2><span class="step-number">3</span>Select Repositories for Mend Renovate</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
@@ -59,62 +72,28 @@
         
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">3</span> Review the "Configure Renovate" Pull Request</h2>
+                <h2><span class="step-number">4</span> Review the "Configure Renovate" Pull Request</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
                 <p>Once you have enabled Renovate on a repository, you will get a "Configure Renovate" PR (Pull Request) that looks something like this:</p>
                 <img src="media/img/config-pr.png" alt="Config-PR" style="width: 60%; max-width: 400px; margin: 1rem 0; border-radius: 10px;">
-                <p>now let's add some custom Settings</p>
+                <p>Now let's add some custom settings</p>
             </div>
         </div>
-        
+
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">4</span> Zähler beobachten</h2>
+                <h2><span class="step-number">5</span>Personal Global Renovate dashboard</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>Hier können Sie die Entwicklung Ihres Zählers über die Zeit beobachten.</p>
-                <ul>
-                    <li>Das Diagramm aktualisiert sich automatisch</li>
-                    <li>Beachten Sie die Skalierung der Y-Achse</li>
-                    <li>Fahren Sie mit der Maus über den Graphen, um detaillierte Informationen zu erhalten</li>
-                </ul>
+                <p>Go to your <a href="app.renovatebot.com/dashboard">Personal Renovate dashboard</a>, where you can manage your settings.</p>
+                <div style="display: flex; gap: 1rem;">
+                    <a href="app.renovatebot.com/dashboard"><button class="button">Go to Renovate Dashboard</button></a>
+                </div>
             </div>
         </div>
-        
-        <div class="card">
-            <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">5</span> Auf eigenen Zähler fokussieren</h2>
-                <span class="chevron">↓</span>
-            </div>
-            <div class="card-body">
-                <p>Sie können die Ansicht auf Ihren eigenen Zähler beschränken.</p>
-                <ol>
-                    <li>Wählen Sie den Filter-Button in der oberen rechten Ecke</li>
-                    <li>Geben Sie Ihren Zählernamen in das Suchfeld ein</li>
-                    <li>Bestätigen Sie die Auswahl mit Enter oder Klick auf "Anwenden"</li>
-                </ol>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">6</span> Spielen und probieren</h2>
-                <span class="chevron">↓</span>
-            </div>
-            <div class="card-body">
-                <p>Experimentieren Sie mit verschiedenen Einstellungen:</p>
-                <ul>
-                    <li>Ändern Sie das Zeitintervall in der oberen Leiste</li>
-                    <li>Probieren Sie verschiedene Anzeigeoptionen aus dem Einstellungsmenü</li>
-                    <li>Vergleichen Sie Ihren Zähler mit anderen durch die Mehrfachauswahl</li>
-                </ul>
-                <p>Nutzen Sie diese Zeit, um die Funktionen des Monitoring Labs kennenzulernen und mit den verschiedenen Visualisierungsoptionen zu experimentieren.</p>
-            </div>
-        </div>
-    </div>
     
     <script src="script.js"></script>
 </body>
