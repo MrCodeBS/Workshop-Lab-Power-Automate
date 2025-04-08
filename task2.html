@@ -29,93 +29,94 @@
         
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">1</span> GitHub-Repository aufrufen</h2>
+                <h2><span class="step-number">1</span> Review the "Configure Renovate" Pull Request</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>Gehe zur <a href="#">GitHub-Repository und forke sie</a>, um mit dem praktischen Teil zu beginnen.</p>
-                <div style="display: flex; gap: 1rem;">
-                    <button class="button">Zur GitHub-Repository</button>
-                </div>
+                <p>Once you have enabled Renovate on a repository, you will get a "Configure Renovate" PR (Pull Request) that looks something like this:</p>
+                <img src="media/img/config-pr.png" alt="Config-PR" style="width: 60%; max-width: 400px; margin: 1rem 0; border-radius: 10px;">
+                <p>Now let's add some custom settings</p>
             </div>
         </div>
-        
+
+               
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">2</span> Zählernamen definieren</h2>
-                <span class="chevron">↓</span>
+            <h2><span class="step-number">2</span> Adding Labels and Reviewers</h2>
+            <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>Hier können Sie einen Namen für Ihren Zähler definieren.</p>
-                <ul>
-                    <li>Wählen Sie einen eindeutigen Namen für Ihren Counter</li>
-                    <li>Vermeiden Sie Sonderzeichen und Leerzeichen</li>
-                    <li>Benutzen Sie Unterstriche als Trennzeichen (z.B. mein_zaehler)</li>
-                </ul>
+            <p>In this step, you will learn how to add labels and reviewers to your Renovate configuration.</p>
+            <ul>
+                <li>Open the <code>renovate.json</code> file in your repository.</li>
+                <li>To add labels, include a <code>"labels"</code> array in your configuration. For example:
+                <pre><code>
+    {
+      "labels": ["dependencies", "renovate"]
+    }
+                </code></pre>
+                </li>
+                <li>To add reviewers, include a <code>"reviewers"</code> array with GitHub usernames. For example:
+                <pre><code>
+    {
+      "reviewers": ["team-member1", "team-member2"]
+    }
+                </code></pre>
+                </li>
+                <li>Save the changes and commit the updated configuration file.</li>
+            </ul>
+            <p>These settings will ensure that your pull requests are properly labeled and assigned to the right reviewers.</p>
             </div>
         </div>
-        
+
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">3</span> Zähler erhöhen</h2>
+                <h2><span class="step-number">3</span> Configure Dependency Dashboard</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>In diesem Schritt erhöhen Sie den Zähler, um Daten zu generieren.</p>
+                <p>In this step, you will set up a Dependency Dashboard to track all dependency updates in one place.</p>
                 <ol>
-                    <li>Klicken Sie auf den "Erhöhen" Button</li>
-                    <li>Beobachten Sie, wie sich der Wert ändert</li>
-                    <li>Wiederholen Sie den Vorgang mehrmals, um einen Trend zu erzeugen</li>
+                    <li>Open the <code>renovate.json</code> file in your repository.</li>
+                    <li>Add the following configuration to enable the Dependency Dashboard:
+                        <pre><code>
+        {
+          "dependencyDashboard": true
+        }
+                        </code></pre>
+                    </li>
+                    <li>Save the changes and commit the updated configuration file.</li>
+                </ol>
+                <p>Once configured, Renovate will create a Dependency Dashboard issue in your repository to help you manage updates efficiently.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">4</span> Dependency Dashboard</h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p>In this step, you will have a look at the Dependency Dashboard to track all dependency updates.</p>
+                <ol>
+                    <li>Click on the Github Issues</li>
+                    <li>There you should see a issue Named Dependency Dashboard</li>
+                    <li>Open the Dependency Dashboard issue to view all pending dependency updates.</li>
+                    <li>Review the list of updates and prioritize them based on your project's needs.</li>
+                    <li>Click on any update to view detailed information and take action, such as merging or closing the update.</li>
                 </ol>
             </div>
         </div>
-        
+              
         <div class="card">
             <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">4</span> Zähler beobachten</h2>
+                <h2><span class="step-number">5</span> Conclusion</h2>
                 <span class="chevron">↓</span>
             </div>
             <div class="card-body">
-                <p>Hier können Sie die Entwicklung Ihres Zählers über die Zeit beobachten.</p>
-                <ul>
-                    <li>Das Diagramm aktualisiert sich automatisch</li>
-                    <li>Beachten Sie die Skalierung der Y-Achse</li>
-                    <li>Fahren Sie mit der Maus über den Graphen, um detaillierte Informationen zu erhalten</li>
-                </ul>
+                <p>Congratulations! You have successfully configured Renovate for dependency management. You can now automate the process of keeping your dependencies up to date.</p>
+                <p>In the next task, you will learn how to create Power Automate flows for GitHub.</p>
             </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">5</span> Auf eigenen Zähler fokussieren</h2>
-                <span class="chevron">↓</span>
-            </div>
-            <div class="card-body">
-                <p>Sie können die Ansicht auf Ihren eigenen Zähler beschränken.</p>
-                <ol>
-                    <li>Wählen Sie den Filter-Button in der oberen rechten Ecke</li>
-                    <li>Geben Sie Ihren Zählernamen in das Suchfeld ein</li>
-                    <li>Bestätigen Sie die Auswahl mit Enter oder Klick auf "Anwenden"</li>
-                </ol>
-            </div>
-        </div>
-        
-        <div class="card">
-            <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">6</span> Spielen und probieren</h2>
-                <span class="chevron">↓</span>
-            </div>
-            <div class="card-body">
-                <p>Experimentieren Sie mit verschiedenen Einstellungen:</p>
-                <ul>
-                    <li>Ändern Sie das Zeitintervall in der oberen Leiste</li>
-                    <li>Probieren Sie verschiedene Anzeigeoptionen aus dem Einstellungsmenü</li>
-                    <li>Vergleichen Sie Ihren Zähler mit anderen durch die Mehrfachauswahl</li>
-                </ul>
-                <p>Nutzen Sie diese Zeit, um die Funktionen des Monitoring Labs kennenzulernen und mit den verschiedenen Visualisierungsoptionen zu experimentieren.</p>
-            </div>
-        </div>
-    </div>
     
     <script src="script.js"></script>
 </body>
