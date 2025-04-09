@@ -38,7 +38,71 @@
                 </div>
             </div>
         </div>
-            
+
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">2</span> Create a new flow in Power Automate</h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p>To create a new flow in Power Automate:</p>
+                <ol>
+                    <li>Click on the "Create" button in the left-hand menu.</li>
+                    <li>Select "Automated flow" from the options.</li>
+                    <li>Provide a name for your flow and click "Create".</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">3</span> Add a trigger for GitHub actions</h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p>To add a trigger for GitHub actions:</p>
+                <ol>
+                    <li>In the flow designer, click on "New step".</li>
+                    <li>Search for "GitHub" and select the GitHub connector.</li>
+                    <li>Choose a trigger, such as "When an issue is created" or "When a pull request is merged".</li>
+                    <li>Authenticate with your GitHub account if prompted.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">4</span> Add actions to the flow</h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p>To add actions to the flow:</p>
+                <ol>
+                    <li>Click on "New step" after adding the trigger.</li>
+                    <li>Search for the desired action, such as "Create an issue" or "Send an email".</li>
+                    <li>Configure the action with the necessary details.</li>
+                    <li>Repeat the process to add more actions as needed.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">5</span> Provide examples of common GitHub actions</h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p>Here are some examples of common GitHub actions that can be automated using Power Automate:</p>
+                <ul>
+                    <li>Automatically create an issue when a new pull request is opened.</li>
+                    <li>Send a notification to a Slack channel when an issue is assigned to you.</li>
+                    <li>Label pull requests based on the files changed.</li>
+                    <li>Close stale issues after a certain period of inactivity.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
