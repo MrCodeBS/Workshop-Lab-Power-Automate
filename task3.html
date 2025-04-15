@@ -1,44 +1,352 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Workshop Lab Power Automate - Task 1: Get the Renovate bot.">
-    <meta name="keywords" content="Power Automate, Workshop, Metriken, Monitoring Lab, Task 1">
-    <meta name="author" content="MrCode">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<html lang="en-gb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Workshop Lab Power Automate - Task 3: Creating Power Automate flows for GitHub"
+    />
+    <meta
+      name="keywords"
+      content="Power Automate, Workshop, GitHub, Automation"
+    />
+    <meta name="author" content="MrCode" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>Workshop Lab Power Automate</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="welcome.html" class="nav-item">Workshop Lab Power Automate</a>
-        <a href="task1.html" class="nav-item">Task 1</a>
-        <a href="task2.html" class="nav-item">Task 2</a>
-        <a href="task3.html" class="nav-item active">Task 3</a>
-        <a href="task4.html" class="nav-item">Task 4</a>
-        <a href="task5.html" class="nav-item">Task 5</a>
-        <a href="task6.html" class="nav-item">Task 6</a>
+      <a href="index.html" class="nav-item">Workshop Lab Power Automate</a>
+      <a href="task1.html" class="nav-item">Task 1</a>
+      <a href="task2.html" class="nav-item">Task 2</a>
+      <a href="task3.html" class="nav-item active">Task 3</a>
+      <a href="task4.html" class="nav-item">Task 4</a>
+      <a href="task5.html" class="nav-item">Task 5</a>
+      <a href="task6.html" class="nav-item">Task 6</a>
+      <div class="language-selector">
+        <button onclick="changeLanguage('en')" class="lang-btn" id="lang-en">
+          EN
+        </button>
+        <button onclick="changeLanguage('de')" class="lang-btn" id="lang-de">
+          DE
+        </button>
+      </div>
     </nav>
-    
+
     <div class="container">
-        <h1>Task 3: Creating Power Automate flows for GitHub</h1>
-        <p>In this section, you will learn how to create Power Automate flows to automate GitHub actions. Follow the steps below to gain hands-on experience and understand automation.</p>
-        <hr>
-        
-        <div class="card">
-            <div class="card-header" onclick="toggleSection(this.parentElement)">
-                <h2><span class="step-number">1</span> log In to power-automate</h2>
-                <span class="chevron">↓</span>
-            </div>
-            <div class="card-body">
-                <p>Go <a href="https://make.powerautomate.com">to the power-automate </a>, to start the practical part.</p>
-                <div style="display: flex; gap: 1rem;">
-                    <a href="https://make.powerautomate.com"><button class="button">Zur GitHub-Repository</button></a>
-                </div>
-            </div>
+      <h1 data-i18n="task3_title">
+        Task 3: Creating Power Automate flows for GitHub
+      </h1>
+      <p data-i18n="task3_intro">
+        In this section, you will learn how to create Power Automate flows to
+        automate GitHub actions. Follow the steps below to gain hands-on
+        experience and understand automation.
+      </p>
+      <hr />
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">1</span>
+            <span data-i18n="task3_step1_title">Log In to Power Automate</span>
+          </h2>
+          <span class="chevron">↓</span>
         </div>
-            
+        <div class="card-body">
+          <p data-i18n="task3_step1_text">
+            Go to <a href="https://make.powerautomate.com">Power Automate</a> to
+            start the practical part.
+          </p>
+          <div style="display: flex; gap: 1rem">
+            <a href="https://make.powerautomate.com"
+              ><button class="button" data-i18n="task3_step1_button">
+                Go to Power Automate
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">2</span>
+            <span data-i18n="task3_step2_title">Connect to GitHub</span>
+          </h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p data-i18n="task3_step2_text1">
+            To automate GitHub actions, you first need to establish a connection
+            between Power Automate and GitHub:
+          </p>
+          <ol>
+            <li data-i18n="task3_step2_item1">
+              From the Power Automate homepage, click on "Create" in the left
+              sidebar
+            </li>
+            <li data-i18n="task3_step2_item2">Select "Instant cloud flow"</li>
+            <li data-i18n="task3_step2_item3">
+              Choose a trigger (for this workshop, select "Manually trigger a
+              flow")
+            </li>
+            <li data-i18n="task3_step2_item4">Click "Create"</li>
+          </ol>
+          <p data-i18n="task3_step2_text2">
+            Now that you've created a flow, you need to add a GitHub action:
+          </p>
+          <ol start="5">
+            <li data-i18n="task3_step2_item5">Click on "New step"</li>
+            <li data-i18n="task3_step2_item6">
+              Search for "GitHub" in the connectors search box
+            </li>
+            <li data-i18n="task3_step2_item7">
+              Select "GitHub" from the results
+            </li>
+            <li data-i18n="task3_step2_item8">
+              You'll be prompted to sign in and authorize Power Automate to
+              access your GitHub account
+            </li>
+          </ol>
+          <img
+            src="media/img/github-connection.png"
+            alt="GitHub Connection"
+            style="
+              width: 85%;
+              max-width: 600px;
+              margin: 1rem 0;
+              border-radius: 10px;
+            "
+          />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">3</span>
+            <span data-i18n="task3_step3_title"
+              >Create a PR Review Notification Flow</span
+            >
+          </h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p data-i18n="task3_step3_text1">
+            Let's create a flow that notifies you when a new pull request is
+            created or needs your review:
+          </p>
+          <ol>
+            <li data-i18n="task3_step3_item1">
+              From the Power Automate homepage, click on "Create" in the left
+              sidebar
+            </li>
+            <li data-i18n="task3_step3_item2">Select "Automated cloud flow"</li>
+            <li data-i18n="task3_step3_item3">
+              Search for "GitHub" and select "When a pull request is created"
+            </li>
+            <li data-i18n="task3_step3_item4">Select your repository</li>
+            <li data-i18n="task3_step3_item5">
+              Click "New step" and search for "Send an email"
+            </li>
+            <li data-i18n="task3_step3_item6">
+              Configure the email action with dynamic content from the GitHub
+              trigger
+            </li>
+          </ol>
+          <p data-i18n="task3_step3_text2">
+            Your flow should look something like this:
+          </p>
+          <img
+            src="media/img/pr-notification-flow.png"
+            alt="PR Notification Flow"
+            style="
+              width: 85%;
+              max-width: 600px;
+              margin: 1rem 0;
+              border-radius: 10px;
+            "
+          />
+          <p data-i18n="task3_step3_text3">Click "Save" to create your flow.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">4</span>
+            <span data-i18n="task3_step4_title"
+              >Create a PR Auto-Approval Flow for Renovate</span
+            >
+          </h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p data-i18n="task3_step4_text1">
+            Now let's create a more advanced flow that automatically approves
+            pull requests from Renovate if they meet certain criteria:
+          </p>
+          <ol>
+            <li data-i18n="task3_step4_item1">
+              Create a new automated flow with the trigger "When a pull request
+              is created" (GitHub)
+            </li>
+            <li data-i18n="task3_step4_item2">
+              Add a "Condition" control to check if the PR creator is
+              "renovate[bot]"
+            </li>
+            <li data-i18n="task3_step4_item3">
+              In the "If yes" branch, add the GitHub action "Submit a pull
+              request review"
+            </li>
+            <li data-i18n="task3_step4_item4">
+              Configure it with:
+              <ul>
+                <li>Repository: [your repository]</li>
+                <li>Pull request number: [dynamic content from trigger]</li>
+                <li>Event: APPROVE</li>
+                <li>Body: "Automatically approved Renovate PR"</li>
+              </ul>
+            </li>
+          </ol>
+          <p data-i18n="task3_step4_text2">
+            Your conditional flow should look similar to this:
+          </p>
+          <img
+            src="media/img/auto-approve-flow.png"
+            alt="Auto Approve Flow"
+            style="
+              width: 85%;
+              max-width: 600px;
+              margin: 1rem 0;
+              border-radius: 10px;
+            "
+          />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">5</span>
+            <span data-i18n="task3_step5_title">Test Your Flow</span>
+          </h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p data-i18n="task3_step5_text1">
+            Let's test your newly created flow:
+          </p>
+          <ol>
+            <li data-i18n="task3_step5_item1">
+              From the flow details page, click "Test" in the top right corner
+            </li>
+            <li data-i18n="task3_step5_item2">
+              Choose "Manually" and click "Test"
+            </li>
+            <li data-i18n="task3_step5_item3">
+              Create a test PR in your repository or wait for a Renovate PR
+            </li>
+            <li data-i18n="task3_step5_item4">
+              Monitor the flow run to see if it executes correctly
+            </li>
+          </ol>
+          <p data-i18n="task3_step5_text2">
+            You can view the run history to diagnose any issues:
+          </p>
+          <img
+            src="media/img/flow-run-history.png"
+            alt="Flow Run History"
+            style="
+              width: 85%;
+              max-width: 600px;
+              margin: 1rem 0;
+              border-radius: 10px;
+            "
+          />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">6</span>
+            <span data-i18n="task3_step6_title">Additional Flow Ideas</span>
+          </h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p data-i18n="task3_step6_text">
+            Here are some additional GitHub automation flows you can create:
+          </p>
+          <ul>
+            <li data-i18n="task3_step6_item1">
+              <strong>Issue Assignment:</strong> Automatically assign issues
+              with specific labels to team members
+            </li>
+            <li data-i18n="task3_step6_item2">
+              <strong>PR Reminders:</strong> Send reminders for PRs that have
+              been open without review for more than 24 hours
+            </li>
+            <li data-i18n="task3_step6_item3">
+              <strong>Branch Protection:</strong> Get notified when someone
+              tries to push directly to the main branch
+            </li>
+            <li data-i18n="task3_step6_item4">
+              <strong>Issue Templates:</strong> Auto-label issues based on their
+              template type
+            </li>
+            <li data-i18n="task3_step6_item5">
+              <strong>Release Notifications:</strong> Send team-wide
+              notifications when a new release is published
+            </li>
+          </ul>
+          <p data-i18n="task3_step6_challenge">
+            Challenge: Try creating one of these additional flows on your own!
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" onclick="toggleSection(this.parentElement)">
+          <h2>
+            <span class="step-number">7</span>
+            <span data-i18n="task3_step7_title">Conclusion</span>
+          </h2>
+          <span class="chevron">↓</span>
+        </div>
+        <div class="card-body">
+          <p data-i18n="task3_step7_text1">
+            Congratulations! You have successfully created Power Automate flows
+            for GitHub automation. These workflows will help you:
+          </p>
+          <ul>
+            <li data-i18n="task3_step7_item1">Save time on repetitive tasks</li>
+            <li data-i18n="task3_step7_item2">
+              Ensure consistency in your development processes
+            </li>
+            <li data-i18n="task3_step7_item3">
+              Improve team coordination and efficiency
+            </li>
+            <li data-i18n="task3_step7_item4">
+              Automate the management of Renovate pull requests
+            </li>
+          </ul>
+          <p data-i18n="task3_step7_text2">
+            In the next task, you will learn about automating GitLab workflows.
+          </p>
+          <div style="display: flex; gap: 1rem; margin-top: 1rem">
+            <a href="task4.html" class="button" data-i18n="task3_next_button"
+              >Continue to Task 4</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="translations.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
