@@ -1,0 +1,298 @@
+ -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Workshop Lab Power Automate - Task 5: Advanced Renovate configurations">
+    <meta name="keywords" content="Power Automate, Workshop, GitHub, GitLab, Renovate, Advanced Configuration">
+    <meta name="author" content="MrCode">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Workshop Lab Power Automate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-item">Workshop Lab Power Automate</a>
+        <a href="task1.html" class="nav-item">Task 1</a>
+        <a href="task2.html" class="nav-item">Task 2</a>
+        <a href="task3.html" class="nav-item">Task 3</a>
+        <a href="task4.html" class="nav-item">Task 4</a>
+        <a href="task5.html" class="nav-item active">Task 5</a>
+        <a href="task6.html" class="nav-item">Task 6</a>
+        <div class="language-selector">
+            <button onclick="changeLanguage('en')" class="lang-btn" id="lang-en">EN</button>
+            <button onclick="changeLanguage('de')" class="lang-btn" id="lang-de">DE</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1 data-i18n="task5_title">Task 5: Advanced Renovate Configurations</h1>
+        <p data-i18n="task5_intro">In this section, you'll learn how to implement advanced configuration options for Renovate to handle complex dependency management scenarios. These advanced configurations will give you greater control over how dependencies are updated in your repositories.</p>
+        <hr>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">1</span> <span data-i18n="task5_step1_title">Custom Update Schedules</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step1_text1">Renovate allows you to define custom schedules for when updates should be performed, which is useful for limiting disruptions during critical business hours:</p>
+                <pre><code>{
+  "schedule": ["after 10pm and before 5am on every weekday", "every weekend"]
+}</code></pre>
+                <p data-i18n="task5_step1_text2">You can also set different schedules for different dependency types:</p>
+                <pre><code>{
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "schedule": ["after 9pm every weekday"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "schedule": ["on saturday"],
+      "automerge": false
+    }
+  ]
+}</code></pre>
+                <p data-i18n="task5_step1_exercise">Exercise: Configure your renovate.json to schedule non-critical dependency updates for weekends only.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">2</span> <span data-i18n="task5_step2_title">Advanced Package Rules</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step2_text1">Package rules allow you to apply specific configuration to dependencies that match certain patterns. This gives you fine-grained control over how different dependencies are treated:</p>
+                <pre><code>{
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["^eslint"],
+      "groupName": "eslint packages",
+      "automerge": true
+    },
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "groupName": "react core",
+      "major": {
+        "automerge": false
+      }
+    },
+    {
+      "matchLanguages": ["javascript"],
+      "matchDepTypes": ["optionalDependencies"],
+      "enabled": false
+    }
+  ]
+}</code></pre>
+                <p data-i18n="task5_step2_text2">The example above demonstrates:</p>
+                <ul>
+                    <li data-i18n="task5_step2_item1">Grouping all eslint-related packages together and enabling automerge</li>
+                    <li data-i18n="task5_step2_item2">Grouping React core packages but disabling automerge for major updates</li>
+                    <li data-i18n="task5_step2_item3">Disabling updates for all JavaScript optional dependencies</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">3</span> <span data-i18n="task5_step3_title">Automerge Configuration</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step3_text1">Renovate can automatically merge PRs that meet certain criteria. This is particularly useful for keeping dependencies up-to-date with minimal manual intervention:</p>
+                <pre><code>{
+  "automerge": true,
+  "automergeType": "branch",
+  "major": {
+    "automerge": false
+  },
+  "minor": {
+    "automerge": true
+  },
+  "patch": {
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["pin"],
+      "automerge": true
+    }
+  ]
+}</code></pre>
+                <p data-i18n="task5_step3_text2">In the configuration above:</p>
+                <ul>
+                    <li data-i18n="task5_step3_item1">Minor and patch updates are automatically merged</li>
+                    <li data-i18n="task5_step3_item2">Major updates require manual review</li>
+                    <li data-i18n="task5_step3_item3">Version pinning updates are automatically merged</li>
+                    <li data-i18n="task5_step3_item4">The merge happens directly to the branch rather than through a PR (automergeType: "branch")</li>
+                </ul>
+                <p data-i18n="task5_step3_text3">Note: Automerge requires appropriate repository permissions and may need additional configuration depending on your repository's branch protection rules.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">4</span> <span data-i18n="task5_step4_title">Custom Versioning Schemes</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step4_text1">Renovate supports various versioning schemes beyond standard semver, which is useful for projects with non-standard version patterns:</p>
+                <pre><code>{
+  "packageRules": [
+    {
+      "matchPackageNames": ["my-custom-package"],
+      "versioning": "docker"
+    },
+    {
+      "matchPackagePatterns": ["^com.example:"],
+      "versioning": "maven"
+    }
+  ]
+}</code></pre>
+                <p data-i18n="task5_step4_text2">Available versioning schemes include:</p>
+                <ul>
+                    <li data-i18n="task5_step4_item1"><code>semver</code>: Standard semantic versioning (default)</li>
+                    <li data-i18n="task5_step4_item2"><code>docker</code>: Docker versioning with version pins</li>
+                    <li data-i18n="task5_step4_item3"><code>composer</code>: PHP Composer versioning</li>
+                    <li data-i18n="task5_step4_item4"><code>poetry</code>: Python Poetry versioning</li>
+                    <li data-i18n="task5_step4_item5"><code>loose</code>: Looser semver for packages that don't strictly follow it</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">5</span> <span data-i18n="task5_step5_title">Custom Managers and File Matching</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step5_text1">You can configure Renovate to work with custom file patterns or enable/disable specific package managers:</p>
+                <pre><code>{
+  "enabledManagers": ["npm", "dockerfile", "gomod"],
+  "npm": {
+    "fileMatch": ["\\.config\\.js$", "special\\.json$"]
+  },
+  "dockerfile": {
+    "fileMatch": ["docker/.*Dockerfile", "Containerfile"],
+    "pinDigests": true
+  }
+}</code></pre>
+                <p data-i18n="task5_step5_text2">This allows you to:</p>
+                <ul>
+                    <li data-i18n="task5_step5_item1">Limit which package managers Renovate should use</li>
+                    <li data-i18n="task5_step5_item2">Define custom file patterns for specific managers</li>
+                    <li data-i18n="task5_step5_item3">Apply manager-specific settings like pinning Docker digests</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">6</span> <span data-i18n="task5_step6_title">Dependency Dashboard</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step6_text1">The dependency dashboard provides a central view of all Renovate updates and their status. Enable it with:</p>
+                <pre><code>{
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Dependency Dashboard",
+  "dependencyDashboardLabels": ["dependencies", "dashboard"]
+}</code></pre>
+                <p data-i18n="task5_step6_text2">The dashboard is created as an issue in your repository and includes:</p>
+                <ul>
+                    <li data-i18n="task5_step6_item1">A list of PRs currently open</li>
+                    <li data-i18n="task5_step6_item2">Updates that have been deferred or scheduled</li>
+                    <li data-i18n="task5_step6_item3">Updates that have been paused or ignored</li>
+                    <li data-i18n="task5_step6_item4">Error reports for failed updates</li>
+                </ul>
+                <img src="media/img/dependency-dashboard.png" alt="Dependency Dashboard Example" style="width: 85%; max-width: 600px; margin: 1rem 0; border-radius: 10px;">
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">7</span> <span data-i18n="task5_step7_title">Advanced Practical Exercise</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step7_text1">Let's apply these advanced concepts to create a sophisticated Renovate configuration for a real-world scenario:</p>
+                <ol>
+                    <li data-i18n="task5_step7_item1">Fork or create a repository with multiple dependency types (e.g., npm, Docker, GitHub Actions)</li>
+                    <li data-i18n="task5_step7_item2">Create an advanced renovate.json with the following features:
+                        <ul>
+                            <li>Group related dependencies</li>
+                            <li>Schedule updates for non-business hours</li>
+                            <li>Auto-merge patch and minor updates for dev dependencies</li>
+                            <li>Configure the dependency dashboard</li>
+                            <li>Pin Docker image digests</li>
+                        </ul>
+                    </li>
+                    <li data-i18n="task5_step7_item3">Test the configuration by observing how Renovate handles different types of dependencies</li>
+                </ol>
+                <p data-i18n="task5_step7_text2">Here's a sample configuration to start with:</p>
+                <pre><code>{
+  "extends": ["config:base"],
+  "dependencyDashboard": true,
+  "schedule": ["after 9pm and before 5am every weekday", "every weekend"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "pinDigests": true
+    },
+    {
+      "matchPackagePatterns": ["^eslint"],
+      "groupName": "eslint packages",
+      "schedule": ["on sunday"]
+    },
+    {
+      "matchPackagePatterns": ["^@types/"],
+      "groupName": "TypeScript type definitions",
+      "automerge": true
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "schedule": ["on saturday"]
+    }
+  ]
+}</code></pre>
+                <p data-i18n="task5_step7_text3">Commit this configuration to your repository and observe how Renovate processes it.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header" onclick="toggleSection(this.parentElement)">
+                <h2><span class="step-number">8</span> <span data-i18n="task5_step8_title">Conclusion</span></h2>
+                <span class="chevron">↓</span>
+            </div>
+            <div class="card-body">
+                <p data-i18n="task5_step8_text1">In this task, you've learned advanced Renovate configuration techniques that provide greater control and flexibility for dependency management:</p>
+                <ul>
+                    <li data-i18n="task5_step8_item1">Custom update schedules to control when updates occur</li>
+                    <li data-i18n="task5_step8_item2">Package rules for fine-grained control over different dependencies</li>
+                    <li data-i18n="task5_step8_item3">Automerge options to reduce manual intervention</li>
+                    <li data-i18n="task5_step8_item4">Custom versioning schemes for non-standard packages</li>
+                    <li data-i18n="task5_step8_item5">Manager-specific configurations and file matching</li>
+                    <li data-i18n="task5_step8_item6">The dependency dashboard for centralized update management</li>
+                </ul>
+                <p data-i18n="task5_step8_text2">In the next task, you'll learn how to integrate all the concepts from this workshop to create a comprehensive automation solution using both Renovate and Power Automate.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="task6.html" class="button" data-i18n="task5_next_button">Continue to Task 6</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
